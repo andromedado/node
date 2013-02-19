@@ -11,10 +11,12 @@ http.createServer(function (req, res) {
         pathname = pathname + '.json';
         if (fs.existsSync(pathname)) {
             file = pathname;
+            console.log('*hit* ' + pathname);
         } else {
             pathname = pathname.replace(/\//g, '_');
             if (fs.existsSync(pathname)) {
                 file = pathname;
+                console.log('*hit* ' + pathname);
             } else {
                 console.log(pathname + ' not found');
             }
