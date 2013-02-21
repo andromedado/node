@@ -8,9 +8,9 @@ http.createServer(function (req, res) {
         urlObj = url.parse(req.url, true),
         resolved = resolver.toFile(urlObj, 'stuff.json');
     if (resolved.good) {
-        console.log('*hit* ' + resolved.file);
+        console.log('*hit* ' + resolved.file, urlObj, "\n");
     } else {
-        console.log('*un-resolved* ' + url.parse(req.url, true).pathname);
+        console.log('*un-resolved* ' + url.parse(req.url, true).pathname, urlObj, "\n");
     }
     body = fs.readFileSync(resolved.file, 'utf8');
     res.setHeader('Content-Type', 'application/json');

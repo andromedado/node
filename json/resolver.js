@@ -27,6 +27,24 @@ resolver.addTransformer(function (pathname) {
     return false;
 });
 
+resolver.addTransformer(function (pathname, query) {
+    if (query.paymentAuthorizationStatus != 'AUTHORIZED') {
+        if (pathname.match(/^ecom\/transaction\/[\da-f-]+\/offer\/[\da-f-]+\/paymentAuthorization\/[\da-f-]+/i)) {
+            return 'ecom/payAuth.json';
+        } else if (pathname.match(/^ecom\/transaction\/[\da-f-]+\/offer\/[\da-f-]+\/paymentAuthorization\.json/i)) {
+            return 'ecom/payAuths.json';
+        }
+    }
+    return false;
+});
+
+resolver.addTransformer(function (pathname) {
+    if (pathname.match(/^ecom\/transaction\/[\da-f-]+\/offer\/[\da-f-]+\/?\.json$/i)) {
+        return 'ecom/offer.json';
+    }
+    return false;
+});
+
 resolver.toFile = function (urlObj, defaultFile) {
     var response = {good : false, file : defaultFile},
         pathname = urlObj.pathname.replace(/^\//, '').replace(/\.{2,}/g, ''),
@@ -34,7 +52,7 @@ resolver.toFile = function (urlObj, defaultFile) {
     if (!pathname) return response;
     pathname = pathname + '.json';
     for (i = 0; i < l; i++) {
-        toTry = transformers[i](pathname);
+        toTry = transformers[i](pathname, urlObj.query);
         if (toTry && fs.existsSync(toTry)) {
             response.file = toTry;
             response.good = true;
