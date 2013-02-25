@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "company": "Matt's Sprockets",
         "firstName": "Matthew",
         "lastName": "Smith",
         "addressLine1": "156 5th Ave",
@@ -14,6 +15,7 @@
     },
     {
         "id": 2,
+        "company": "Leroy's Bait and Tackle",
         "firstName": "Leroy",
         "lastName": "Jenkins",
         "addressLine1": "600 68th St",
