@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "company": "Matt's Sprockets",
+        "company": "Matt's Cogs",
         "firstName": "Matthew",
         "lastName": "Smith",
         "addressLine1": "156 5th Ave",
@@ -9,13 +9,13 @@
         "city": "New York",
         "state": "NY",
         "zipCode": "10023",
-        "contactPhone": "",
+        "contactPhone": "555-555-5555",
         "contactName": "",
         "country": "US"
     },
     {
         "id": 2,
-        "company": "Leroy's Bait and Tackle",
+        "company": "Leroy's Sporting Goods",
         "firstName": "Leroy",
         "lastName": "Jenkins",
         "addressLine1": "600 68th St",
@@ -24,7 +24,7 @@
         "state": "IA",
         "zipCode": "50301",
         "contactPhone": "123-132-5465",
-        "contactName": "",
+        "contactName": "Regina Jenkins",
         "country": "US"
     },
     {
@@ -37,7 +37,7 @@
         "state": "NY",
         "zipCode": "10011",
         "contactPhone": "123-132-5465",
-        "contactName": "",
+        "contactName": "Joseph Allen",
         "country": "US"
     }
 ]
